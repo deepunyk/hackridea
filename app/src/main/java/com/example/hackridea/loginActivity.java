@@ -3,6 +3,7 @@ package com.example.hackridea;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,8 @@ public class loginActivity extends AppCompatActivity {
     Button btnlogin,btnnewuser;
     String uname,upass;
     String url="http://smvitmapp.xtoinfinity.tech/php/Hackridea/loginUser.php";
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,9 @@ public class loginActivity extends AppCompatActivity {
         etpass=(EditText)findViewById(R.id.etpassword);
         btnlogin=(Button) findViewById(R.id.btnlogin);
         btnnewuser=(Button) findViewById(R.id.btnNewuser);
+
+        sp = this.getSharedPreferences("com.example.hackridea",MODE_PRIVATE);
+
         btnnewuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +72,7 @@ public class loginActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         Toast.makeText(loginActivity.this, ""+response, Toast.LENGTH_SHORT).show();
                         if(response.equals("success")){
+                            sp.edit().putString("login","farmer").apply();
                             Intent intent = new Intent(loginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
