@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hackridea">
 
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,10 +16,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".calculator"></activity>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDxIkbsSGraJ8wvsAQj0vJ4gKEDlIgIcjM" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
+        <activity android:name=".diseaseActivity" />
+        <activity android:name=".calculatorActivity" />
+        <activity android:name=".CommunityActivity" />
+        <activity android:name=".marketPostActivity" />
+        <activity android:name=".marketActivity" />
+        <activity android:name=".calculator" />
         <activity android:name=".loginActivity" />
         <activity android:name=".profActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".communityFeedPostActivity" />
+        <activity android:name=".communityFeedActivity" />
+        <activity android:name=".feedCommentActivity" />
+        <activity android:name=".feedPostActivity" />
+        <activity android:name=".addDisease" />
+        <activity android:name=".diseaseCommentActivity" />
         <activity android:name=".registerActivity" />
         <activity android:name=".loginSelectActivity" />
         <activity android:name=".splashActivity">

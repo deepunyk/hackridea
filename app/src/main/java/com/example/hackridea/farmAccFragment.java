@@ -38,42 +38,42 @@ public class farmAccFragment extends Fragment {
         calLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), calculatorActivity.class);
                 startActivity(go);
             }
         });
         exLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), CommunityActivity.class);
                 startActivity(go);
             }
         });
         dieLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), diseaseActivity.class);
                 startActivity(go);
             }
         });
         comLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), communityFeedActivity.class);
                 startActivity(go);
             }
         });
         markLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), marketActivity.class);
                 startActivity(go);
             }
         });
         mapLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go = new Intent(getActivity(), calculator.class);
+                Intent go = new Intent(getActivity(), MapsActivity.class);
                 startActivity(go);
             }
         });
