@@ -1,6 +1,7 @@
 package com.example.hackridea;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,13 @@ public class marketActivityRVA extends RecyclerView.Adapter<marketActivityRVA.Vi
         viewHolder.dateTxt.setText(date.get(i));
         viewHolder.titleTxt.setText(title.get(i));
         Glide.with(mContext).load(photo.get(i)).into(viewHolder.img);
+        viewHolder.parent_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent go = new Intent(mContext, marketBillingActivity.class);
+                mContext.startActivity(go);
+            }
+        });
     }
 
     @Override

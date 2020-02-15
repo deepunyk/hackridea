@@ -8,9 +8,11 @@
 
     <EditText
         android:id="@+id/etregname"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="69dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,9 +21,11 @@
 
     <EditText
         android:id="@+id/etregpass"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName|text|textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +34,11 @@
 
     <EditText
         android:id="@+id/etregphone"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,9 +47,11 @@
 
     <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/typeSpin"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:shadowColor="@color/colorAccent"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +61,11 @@
 
     <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/roleSpin"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:shadowColor="@color/colorAccent"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,23 +75,25 @@
 
     <Button
         android:id="@+id/btnSignup"
-        android:layout_width="102dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="161dp"
-        android:layout_marginLeft="161dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginRight="162dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimary"
         android:text="Register"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roleSpin" />
 
     <EditText
         android:id="@+id/etLocation"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
