@@ -50,6 +50,11 @@ public class CommunityActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getResources().getString(R.string.app_name));
+        title_temp.clear();
+        img_url.clear();
+        auth_name.clear();
+        auth_id.clear();
+        author_temp.clear();
         getDetails();
     }
     private void getDetails() {
@@ -114,6 +119,11 @@ public class CommunityActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add:
                 Intent myIntent = new Intent(CommunityActivity.this, feedPostActivity.class);
+                title_temp.clear();
+                img_url.clear();
+                auth_name.clear();
+                auth_id.clear();
+                author_temp.clear();
                 startActivity(myIntent);
                 return true;
             default:

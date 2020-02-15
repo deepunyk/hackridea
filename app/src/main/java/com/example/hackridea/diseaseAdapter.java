@@ -67,6 +67,7 @@ public class diseaseAdapter extends RecyclerView.Adapter<diseaseAdapter.ViewHold
                 Intent myIntent = new Intent(mContext, diseaseCommentActivity.class);
 
                 myIntent.putExtra("rep_id",authid.get(i));
+                myIntent.putExtra("plink",photolink.get(i));
                 mContext.startActivity(myIntent);
             }
         });

@@ -46,12 +46,13 @@ public class diseaseCommentActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     TextView loadTxt;
-    String rep_id,authorr="7259331064",descrip,report_id;
+    String rep_id,authorr="7259331064",descrip,report_id,plink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_comment);
         rep_id=getIntent().getStringExtra("rep_id");
+        plink=getIntent().getStringExtra("plink");
 //        Toast.makeText(this, ""+rep_id, Toast.LENGTH_SHORT).show();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         postBut = (ImageButton) findViewById(R.id.postBut);
@@ -62,7 +63,6 @@ public class diseaseCommentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 descrip = postTxt.getText().toString().trim();
-                Toast.makeText(diseaseCommentActivity.this, ""+descrip, Toast.LENGTH_SHORT).show();
 
                 if (descrip.equals("")) {
                     Toast.makeText(diseaseCommentActivity.this, "Please enter something", Toast.LENGTH_SHORT).show();
@@ -133,7 +133,6 @@ public class diseaseCommentActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(diseaseCommentActivity.this, ""+response, Toast.LENGTH_SHORT).show();
                         if(response.equals("success")){
                             getDetails();
 
@@ -153,6 +152,7 @@ public class diseaseCommentActivity extends AppCompatActivity {
                 params.put("author",authorr);
                 params.put("descri",descrip);
                 params.put("report_id",rep_id);
+                params.put("plink",plink);
 
                 return params;
             };

@@ -55,8 +55,8 @@ public class feedAdapter extends RecyclerView.Adapter<feedAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
-        viewHolder.title1.setText(title.get(i));
-        viewHolder.tvheader.setText(disc.get(i));
+        viewHolder.title1.setText(disc.get(i));
+        viewHolder.tvheader.setText(title.get(i));
         viewHolder.tvauthorname.setText(authname.get(i));
         Glide.with(mContext)
                 .load(photolink.get(i))

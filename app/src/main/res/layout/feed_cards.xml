@@ -80,7 +80,7 @@
                 android:ellipsize="end"
                 android:fontFamily="serif"
                 android:maxLines="1"
-                android:textSize="24sp">
+                android:textSize="14sp">
 
             </TextView>
 
