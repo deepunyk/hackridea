@@ -60,7 +60,7 @@ public class feedAdapter extends RecyclerView.Adapter<feedAdapter.ViewHolder> {
         viewHolder.tvauthorname.setText(authname.get(i));
         Glide.with(mContext)
                 .load(photolink.get(i))
-                .placeholder(R.drawable.ic_android_black_24dp)
+                .placeholder(R.drawable.background)
                 .into(viewHolder.imgview);
         viewHolder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,6 @@ public class feedAdapter extends RecyclerView.Adapter<feedAdapter.ViewHolder> {
 //                myIntent.putExtra("subname",sname);
 //                myIntent.putExtra("subcode",scode);
 //                mContext.startActivity(myIntent);
-                Toast.makeText(mContext, ""+title.get(i), Toast.LENGTH_SHORT).show();
             }
         });
 

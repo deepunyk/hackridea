@@ -190,7 +190,7 @@ public class feedCommentActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(feedCommentActivity.this, ""+response, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(feedCommentActivity.this, ""+response, Toast.LENGTH_SHORT).show();
                         if(response.equals("success")){
                             getClassroomFeed();
                         }

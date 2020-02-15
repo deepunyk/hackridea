@@ -55,7 +55,6 @@ public class communityFeedActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                Toast.makeText(communityFeedActivity.this,""+response,Toast.LENGTH_LONG).show();
 
                         parseItems(response);
                     }
