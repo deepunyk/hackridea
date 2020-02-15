@@ -52,7 +52,7 @@ public class diseaseCommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_comment);
         rep_id=getIntent().getStringExtra("rep_id");
-        Toast.makeText(this, ""+rep_id, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+rep_id, Toast.LENGTH_SHORT).show();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         postBut = (ImageButton) findViewById(R.id.postBut);
         postTxt = (EditText) findViewById(R.id.postTxt);
@@ -88,7 +88,7 @@ public class diseaseCommentActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(diseaseCommentActivity.this,""+response,Toast.LENGTH_LONG).show();
+//                        Toast.makeText(diseaseCommentActivity.this,""+response,Toast.LENGTH_LONG).show();
 
                         parseItems(response);
                     }
@@ -117,7 +117,6 @@ public class diseaseCommentActivity extends AppCompatActivity {
                 String imgurl = jo.getString("author");
                 String authname = jo.getString("report_id");
                 descri.add(title);
-                Toast.makeText(this, ""+title, Toast.LENGTH_SHORT).show();
                 author.add(imgurl);
                 reportid.add(authname);
             }

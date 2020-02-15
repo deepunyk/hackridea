@@ -1,18 +1,21 @@
 package com.example.hackridea;
 
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -22,6 +25,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,25 +33,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CommunityActivity extends AppCompatActivity {
-
-    ArrayList<String> title_temp = new ArrayList<>();
-    ArrayList<String> desc_temp = new ArrayList<>();
-    ArrayList<String> img_url = new ArrayList<>();
-    ArrayList<String> auth_name = new ArrayList<>();
-    ArrayList<String> auth_id = new ArrayList<>();
-    ArrayList<String> author_temp = new ArrayList<>();
-
-    String url= "http://smvitmapp.xtoinfinity.tech/php/Hackridea/getreporteddiseases.php";
+public class leaderboardsActivity extends AppCompatActivity {
+    ArrayList<String> lidar = new ArrayList<>();
+    ArrayList<String> lnamear = new ArrayList<>();
+    ArrayList<String> lscorear = new ArrayList<>();
+    String url= "http://smvitmapp.xtoinfinity.tech/php/Hackridea/getleaderboards.php";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     TextView loadTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_community);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        setContentView(R.layout.activity_leaderboards);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarlea);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getResources().getString(R.string.app_name));
         getDetails();
@@ -58,8 +56,6 @@ public class CommunityActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                //Toast.makeText(CommunityActivity.this,""+response,Toast.LENGTH_LONG).show();
-
                         parseItems(response);
                     }
                 },
@@ -83,43 +79,20 @@ public class CommunityActivity extends AppCompatActivity {
             JSONArray jarray = jobj.getJSONArray("student");
             for (int i = 0; i < jarray.length(); i++) {
                 JSONObject jo = jarray.getJSONObject(i);
-                String title = jo.getString("desc_disease");
-                String imgurl = jo.getString("link");
-                String authname = jo.getString("name");
-                String authid = jo.getString("report_id");
-                String author = jo.getString("author");
-                title_temp.add(title);
-                img_url.add(imgurl);
-                auth_name.add(authname);
-                auth_id.add(authid);
-                author_temp.add(author);
+                String lid = jo.getString("id");
+                String lname = jo.getString("author");
+                String lscore = jo.getString("points");
+                lidar.add(lid);
+                lnamear.add(lname);
+                lscorear.add(lscore);
+
             }
-            recyclerView =(RecyclerView)findViewById(R.id.recycleview);
-            diseaseAdapter adapter = new diseaseAdapter(title_temp,img_url,auth_name,author_temp,auth_id,this);
+            recyclerView =(RecyclerView)findViewById(R.id.recyclerViewlead);
+            leaderAdapter adapter = new leaderAdapter(lidar,lnamear,lscorear,this);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.add_menu, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_add:
-                Intent myIntent = new Intent(CommunityActivity.this, feedPostActivity.class);
-                startActivity(myIntent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
 }

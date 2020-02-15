@@ -77,6 +77,13 @@ public class farmAccFragment extends Fragment {
                 startActivity(go);
             }
         });
+        leadLay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent go = new Intent(getActivity(), leaderboardsActivity.class);
+                startActivity(go);
+            }
+        });
         return view;
     }
 

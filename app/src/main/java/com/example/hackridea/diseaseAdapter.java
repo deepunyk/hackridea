@@ -58,7 +58,7 @@ public class diseaseAdapter extends RecyclerView.Adapter<diseaseAdapter.ViewHold
         viewHolder.authorname.setText(author.get(i));
         Glide.with(mContext)
                 .load(photolink.get(i))
-                .placeholder(R.drawable.ic_add_black_24dp)
+                .placeholder(R.drawable.background)
                 .into(viewHolder.imgview);
         viewHolder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,6 @@ public class diseaseAdapter extends RecyclerView.Adapter<diseaseAdapter.ViewHold
 //                myIntent.putExtra("subname",sname);
 //                myIntent.putExtra("subcode",scode);
 //                mContext.startActivity(myIntent);
-                Toast.makeText(mContext, ""+title.get(i), Toast.LENGTH_SHORT).show();
             }
         });
 
